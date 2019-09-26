@@ -1,0 +1,5 @@
+本MVP封装有三种使用场景
+1，activity/fragment直接继承baseActivity/BaseFragment使用，base中可封装一些常用工具方法
+2，activity /fragment继承baseMvp模式的activity或者fragment但可省略Model层
+3，MVP的标准使用模式
+看activity代码复杂程度选择
