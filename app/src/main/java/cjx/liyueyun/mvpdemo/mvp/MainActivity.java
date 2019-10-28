@@ -1,15 +1,13 @@
 package cjx.liyueyun.mvpdemo.mvp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import cjx.liyueyun.baselib.base.mvp.BaseMvpActivity;
 import cjx.liyueyun.mvpdemo.R;
 import cjx.liyueyun.mvpdemo.TestActivity;
-import cjx.liyueyun.mvpdemo.base.BaseMvpActivity;
 
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
 

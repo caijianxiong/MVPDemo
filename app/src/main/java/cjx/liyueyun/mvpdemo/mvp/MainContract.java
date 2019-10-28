@@ -1,6 +1,7 @@
 package cjx.liyueyun.mvpdemo.mvp;
 
-import cjx.liyueyun.mvpdemo.base.BaseView;
+
+import cjx.liyueyun.baselib.base.mvp.BaseView;
 
 /**
  * @author caicai

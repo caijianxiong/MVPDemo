@@ -1,4 +1,4 @@
-package cjx.liyueyun.mvpdemo.base;
+package cjx.liyueyun.baselib.base.mvp;
 
 import android.content.pm.PackageManager;
 import android.os.Build;

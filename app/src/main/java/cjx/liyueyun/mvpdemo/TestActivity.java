@@ -1,7 +1,7 @@
 package cjx.liyueyun.mvpdemo;
 
 
-import cjx.liyueyun.mvpdemo.base.BaseActivity;
+import cjx.liyueyun.baselib.base.mvp.BaseActivity;
 
 public class TestActivity extends BaseActivity {
 
