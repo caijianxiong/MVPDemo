@@ -1,6 +1,5 @@
 package cjx.liyueyun.mvpdemo.base;
 
-import android.arch.lifecycle.Lifecycle;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 

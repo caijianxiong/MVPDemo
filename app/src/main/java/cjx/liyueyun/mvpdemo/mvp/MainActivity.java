@@ -22,7 +22,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     @Override
     public void initView() {
         Log.i(TAG, "initView: ");
-        TextView tv_text = findViewById(R.id.tv_text);
+        TextView tv_text = (TextView) findViewById(R.id.tv_text);
         tv_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
