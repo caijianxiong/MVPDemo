@@ -38,7 +38,6 @@ public class BasePresenter<V extends BaseView, M extends BasModel> {
 
     /**
      * View是否绑定
-     *
      * @return
      */
     public boolean isAttachedView() {
