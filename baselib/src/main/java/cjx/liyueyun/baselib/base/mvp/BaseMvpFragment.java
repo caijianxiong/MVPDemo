@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * @create 2019/9/26
  * @Describe 
  */
-public abstract class BaseMvpFragment<T extends BasePresenter> extends BaseFragment implements BaseView {
+public abstract class BaseMvpFragment<T extends BaseEasyPresenter> extends BaseFragment implements BaseView {
 
     protected T presenter;
 

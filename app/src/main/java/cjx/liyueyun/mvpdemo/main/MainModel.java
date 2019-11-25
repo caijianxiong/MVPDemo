@@ -1,11 +1,11 @@
-package cjx.liyueyun.mvpdemo.mvp;
+package cjx.liyueyun.mvpdemo.main;
 
 /**
  * @author caicai
  * @create 2019/9/26
  * @Describe
  */
-public class MainModel implements MainContract.Modle {
+public class MainModel implements MainContract.Model {
     @Override
     public String getName(int age, boolean boy) {
         String name;

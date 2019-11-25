@@ -5,11 +5,12 @@ import android.support.annotation.Nullable;
 
 /**
  * @author caicai
- * @create 2019/11/25
- * @Describe
+ * @create 2019/9/26
+ * @Describe 
  */
-public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActivity implements BaseView {
-    protected P presenter;
+public abstract class BaseEasyMvpActivity<T extends BaseEasyPresenter> extends BaseActivity implements BaseView {
+
+    protected T presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -17,7 +18,8 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
         super.onCreate(savedInstanceState);
     }
 
-    public abstract P initPresenter();
+    public abstract T initPresenter();
+
 
     @Override
     protected void onDestroy() {
@@ -26,6 +28,4 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
         }
         super.onDestroy();
     }
-
-
 }

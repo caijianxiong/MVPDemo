@@ -1,14 +1,14 @@
-package cjx.liyueyun.mvpdemo.mvp;
+package cjx.liyueyun.mvpdemo.main;
 
 
-import cjx.liyueyun.baselib.base.mvp.BasePresenter;
+import cjx.liyueyun.baselib.base.mvp.BaseEasyPresenter;
 
 /**
  * @author caicai
  * @create 2019/9/26
  * @Describe
  */
-public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
+public class MainPresenter extends BaseEasyPresenter<MainContract.View> implements MainContract.Presenter {
 
     private MainModel model;
 
