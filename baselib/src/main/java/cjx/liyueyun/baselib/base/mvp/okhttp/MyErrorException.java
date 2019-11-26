@@ -27,7 +27,7 @@ public class MyErrorException extends Exception {
         }else if (e instanceof BindException){//无法把Socket对象与指定的本地IP地址或端口绑定
 
         }else if (e instanceof IOException){
-            
+
         }
 
     }

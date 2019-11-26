@@ -1,11 +1,19 @@
 package cjx.liyueyun.mvpdemo.mvp;
 
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import cjx.liyueyun.baselib.base.mvp.BaseMvpActivity;
+import cjx.liyueyun.baselib.base.mvp.okhttp.callback.MyCallBack;
+import cjx.liyueyun.baselib.base.mvp.okhttp.MyErrorException;
 import cjx.liyueyun.mvpdemo.R;
+import cjx.liyueyun.mvpdemo.main.Been;
+import cjx.liyueyun.mvpdemo.main.Data;
 
 public class MvpActivity extends BaseMvpActivity<MvpPresenter> implements MvpContract.View {
+
 
 
     @Override
@@ -23,6 +31,27 @@ public class MvpActivity extends BaseMvpActivity<MvpPresenter> implements MvpCon
 
     @Override
     public void initView() {
+
+        Button btn = (Button) findViewById(R.id.btn);
+
+
+        new MyCallBack<Data>() {
+            @Override
+            public void onSuccess(Data response) {
+
+            }
+
+            @Override
+            public void onError(MyErrorException e) {
+
+            }
+        };
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                callBack.onSuccess(new Been());
+            }
+        });
 
     }
 
@@ -48,7 +77,6 @@ public class MvpActivity extends BaseMvpActivity<MvpPresenter> implements MvpCon
 
     @Override
     public void onSuccess(String name) {
-
         Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
     }
 }

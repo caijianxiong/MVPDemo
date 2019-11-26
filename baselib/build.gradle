@@ -30,4 +30,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     api 'com.squareup.okhttp3:okhttp:3.12.1'
     api 'com.squareup.okio:okio:1.15.0'
+    api 'com.google.code.gson:gson:2.8.5'
+
 }

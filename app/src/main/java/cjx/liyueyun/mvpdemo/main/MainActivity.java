@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import cjx.liyueyun.baselib.base.mvp.BaseEasyMvpActivity;
+import cjx.liyueyun.baselib.base.mvp.okhttp.MyErrorException;
+import cjx.liyueyun.baselib.base.mvp.okhttp.callback.MyCallBack;
+import cjx.liyueyun.baselib.base.mvp.okhttp.request.RequestGet;
 import cjx.liyueyun.mvpdemo.R;
 import cjx.liyueyun.mvpdemo.TestActivity;
 import cjx.liyueyun.mvpdemo.mvp.MvpActivity;
@@ -49,6 +52,8 @@ public class MainActivity extends BaseEasyMvpActivity<MainPresenter> implements 
 
     @Override
     public void initData() {
+
+
         Log.i(TAG, "initData: ");
         presenter.getName(200, true);//调用
     }
