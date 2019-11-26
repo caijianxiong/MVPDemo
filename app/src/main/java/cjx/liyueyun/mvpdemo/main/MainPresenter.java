@@ -2,6 +2,8 @@ package cjx.liyueyun.mvpdemo.main;
 
 
 import cjx.liyueyun.baselib.base.mvp.BaseEasyPresenter;
+import cjx.liyueyun.baselib.base.mvp.okhttp.MyCallBack;
+import cjx.liyueyun.baselib.base.mvp.okhttp.MyErrorException;
 
 /**
  * @author caicai
