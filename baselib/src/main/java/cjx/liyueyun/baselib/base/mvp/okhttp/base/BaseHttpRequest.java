@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import cjx.liyueyun.baselib.base.mvp.okhttp.HttpUtil;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -25,8 +26,13 @@ public abstract class BaseHttpRequest<T> implements IRequest<T> {
     protected Object tag;
     protected Map<String, String> params;
     protected Map<String, String> headers;
-
     protected Request.Builder builder;
+
+    public Request.Builder getBuilder() {
+        if (builder == null)
+            builder = new Request.Builder();
+        return builder;
+    }
 
     public BaseHttpRequest() {
         this.builder = new Request.Builder();
@@ -34,6 +40,8 @@ public abstract class BaseHttpRequest<T> implements IRequest<T> {
 
     @Override
     public IRequest<T> header(String key, String value) {
+        if (headers == null)
+            headers = new LinkedHashMap<>();
         headers.put(key, value);
         return this;
     }
@@ -41,6 +49,8 @@ public abstract class BaseHttpRequest<T> implements IRequest<T> {
 
     @Override
     public IRequest<T> header(Map<String, String> map) {
+        if (headers == null)
+            headers = new LinkedHashMap<>();
         headers.putAll(map);
         return this;
     }

@@ -5,6 +5,7 @@ import android.net.Uri;
 import java.util.Set;
 
 import cjx.liyueyun.baselib.base.mvp.okhttp.base.BaseHttpRequest;
+import cjx.liyueyun.baselib.base.mvp.okhttp.base.IRequest;
 import cjx.liyueyun.baselib.base.mvp.okhttp.base.IRequestCall;
 import cjx.liyueyun.baselib.base.mvp.okhttp.request_call.MyRequestCall;
 import okhttp3.Request;
@@ -14,7 +15,7 @@ import okhttp3.Request;
  * @create 2019/11/26
  * @Describe
  */
-public class RequestGet<T> extends BaseHttpRequest<T> {
+public class HttpGet<T> extends BaseHttpRequest<T> {
 
     @Override
     public IRequestCall<T> build() {
@@ -22,15 +23,6 @@ public class RequestGet<T> extends BaseHttpRequest<T> {
         appendParams();
         return new MyRequestCall<>(this);
     }
-
-
-//    @Override
-//    public Request build() {
-//        appendHeaders();
-//        appendParams();
-//
-//        return builder.build();
-//    }
 
     private String appendParams() {
         if (url == null || params == null || params.isEmpty()) {
@@ -42,5 +34,14 @@ public class RequestGet<T> extends BaseHttpRequest<T> {
             builder.appendQueryParameter(key, params.get(key));
         }
         return builder.build().toString();
+    }
+
+    /**
+     * get方法要在build之前调用
+     * @return
+     */
+    public IRequest<T> get() {
+        getBuilder().get();
+        return this;
     }
 }

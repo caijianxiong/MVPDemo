@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @create 2019/11/25
  * @Describe
  */
-public class BaseBeen implements Serializable {
+public class EmptyBeen implements Serializable {
 
     private int status;//0为成功
     private String des;

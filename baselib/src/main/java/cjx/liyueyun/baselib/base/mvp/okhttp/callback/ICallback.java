@@ -8,7 +8,7 @@ import okhttp3.Callback;
  * @create 2019/11/25
  * @Describe
  */
-public interface ICallback<T>  {
+public interface ICallback<T> {
 
     abstract void onBefore();
 
@@ -17,5 +17,7 @@ public interface ICallback<T>  {
     abstract void onError(MyErrorException e);
 
     abstract void onAfter(T response);
+
+    abstract void onProgress(float progress, float total);
 
 }

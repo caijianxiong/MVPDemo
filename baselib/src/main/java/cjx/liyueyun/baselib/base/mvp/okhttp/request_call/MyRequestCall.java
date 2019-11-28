@@ -2,6 +2,7 @@ package cjx.liyueyun.baselib.base.mvp.okhttp.request_call;
 
 import android.support.annotation.NonNull;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 
@@ -10,7 +11,7 @@ import cjx.liyueyun.baselib.base.mvp.okhttp.HttpUtil;
 import cjx.liyueyun.baselib.base.mvp.okhttp.MyErrorException;
 import cjx.liyueyun.baselib.base.mvp.okhttp.base.IRequest;
 import cjx.liyueyun.baselib.base.mvp.okhttp.base.IRequestCall;
-import cjx.liyueyun.baselib.base.mvp.okhttp.callback.ICallback;
+import cjx.liyueyun.baselib.base.mvp.okhttp.callback.FileCallBack;
 import cjx.liyueyun.baselib.base.mvp.okhttp.callback.MyCallBack;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -45,19 +46,35 @@ public class MyRequestCall<T> implements IRequestCall<T> {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                T data = parseNetworkResponse(response);
-                callback.onSuccess(data);
-                callback.onAfter(data);
+
+                if (callback instanceof FileCallBack) {
+                    handleFileResponse((FileCallBack) callback, response);
+                } else {
+                    T data = parseNetworkResponse(response);
+                    callback.onSuccess(data);
+                    callback.onAfter(data);
+                }
+
             }
         });
         return tag;
     }
 
+    private void handleFileResponse(FileCallBack callBack, Response response) {
+        callBack.onBefore();
+        callBack.saveFile(response);
+    }
+
 
     public T parseNetworkResponse(Response response) throws IOException {
         String string = response.body().string();
-        Class<T> entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        if (entityClass == String.class) {
+        Class<T> entityClass = null;
+        try {
+            entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        } catch (Exception e) {
+
+        }
+        if (entityClass == null || entityClass == String.class) {
             return (T) string;
         }
         T bean = LibApplication.getmGson().fromJson(string, entityClass);
